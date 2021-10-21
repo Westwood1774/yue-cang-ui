@@ -1,0 +1,29 @@
+<div class="background">
+  <nav>
+    <a id="register" routerLink="/register">注册新用户</a>
+  </nav>
+  <div class="loginForm">
+    <h2>欢迎光临</h2>
+    <form [formGroup]="loginForm" (submit)="onSubmit()">
+      <div class="p-float-label">
+        <input pInputText id="username" type="username" formControlName="username"
+               [ngClass]="{ 'is-invalid': submitted && f().username.errors }">
+        <label for="username">请输入用户名</label>
+        <div *ngIf="submitted && f().username.errors" class="invalid-feedback">
+          <div *ngIf="f().username.errors?.required">Username is required</div>
+        </div>
+      </div>
+      <br><br>
+      <div class="p-float-label">
+        <input pInputText id="password" type="password" formControlName="password"
+               [ngClass]="{ 'is-invalid': submitted && f().password.errors }">
+        <label for="password">请输入密码</label>
+        <div *ngIf="submitted && f().password.errors" class="invalid-feedback">
+          <div *ngIf="f().password.errors?.required">Password is required</div>
+        </div>
+      </div>
+      <br><br>
+      <p-button class="btn btn-primary">登录</p-button>
+    </form>
+  </div>
+</div>
