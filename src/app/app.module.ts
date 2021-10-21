@@ -13,6 +13,7 @@ import {AuthenticationService} from './services/authentication.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {InputTextModule} from 'primeng/inputtext';
     HttpClientModule,
     ButtonModule,
     InputTextModule,
+    TableModule
   ],
   providers: [RestService, AuthenticationService],
   bootstrap: [AppComponent]

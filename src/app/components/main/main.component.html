@@ -1,5 +1,32 @@
-<p>main works!</p>
-
-<p-button label="Click" ></p-button>
-
-<button pButton type="button" label="Click" ></button>
+<div>
+  <h3 align="center">历史记录</h3>
+  <p align="right">账户余额: {{accountRest}}</p>
+  <p-table
+    [value]="historyData"
+    [paginator]="true"
+    [rows]="10"
+    responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>操作</th>
+        <th>日期</th>
+        <th>状态</th>
+        <th>客户是否有权限修改</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-history>
+      <tr>
+        <td>{{history.operation}}</td>
+        <td>{{history.date}}</td>
+        <td>{{history.status}}</td>
+        <td>{{history.clientPermission}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <br>
+  <div>
+    <button pButton>库存查询</button>&nbsp;&nbsp;
+    <button pButton class="p-button-secondary">寄货到仓库</button>&nbsp;&nbsp;
+    <button pButton class="p-button-success">仓库寄出</button>
+  </div>
+</div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {HistoryRecord} from '../../models/history.record';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,100 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  historyData!: HistoryRecord[];
+  accountRest!: number;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+    this.accountRest = 100.95;
+    this.historyData = [
+      {
+        operation: '修改',
+        status: '正常',
+        date: '10/21/21',
+        clientPermission: '否'
+      },
+      {
+        operation: '修改',
+        status: '正常',
+        date: '10/21/21',
+        clientPermission: '否'
+      },
+      {
+        operation: '修改',
+        status: '正常',
+        date: '10/21/21',
+        clientPermission: '否'
+      },
+      {
+        operation: '修改',
+        status: '正常',
+        date: '10/21/21',
+        clientPermission: '否'
+      },
+      {
+        operation: '修改',
+        status: '正常',
+        date: '10/21/21',
+        clientPermission: '否'
+      },
+      {
+        operation: '修改',
+        status: '正常',
+        date: '10/21/21',
+        clientPermission: '否'
+      },
+      {
+        operation: '修改',
+        status: '正常',
+        date: '10/21/21',
+        clientPermission: '否'
+      },
+      {
+        operation: '修改',
+        status: '正常',
+        date: '10/21/21',
+        clientPermission: '否'
+      },
+      {
+        operation: '修改',
+        status: '正常',
+        date: '10/21/21',
+        clientPermission: '否'
+      },
+      {
+        operation: '修改',
+        status: '正常',
+        date: '10/21/21',
+        clientPermission: '否'
+      },
+      {
+        operation: '修改',
+        status: '正常',
+        date: '10/21/21',
+        clientPermission: '否'
+      },
+      {
+        operation: '修改',
+        status: '正常',
+        date: '10/21/21',
+        clientPermission: '否'
+      },
+      {
+        operation: '修改',
+        status: '正常',
+        date: '10/21/21',
+        clientPermission: '否'
+      },
+      {
+        operation: '修改',
+        status: '正常',
+        date: '10/21/21',
+        clientPermission: '否'
+      }
+    ];
   }
 
 }
