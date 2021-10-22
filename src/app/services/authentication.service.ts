@@ -5,6 +5,7 @@ import {Observable, of, BehaviorSubject} from 'rxjs';
 import {catchError, map, tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {User} from '../models/user';
+import {RestService} from './rest.service';
 
 @Injectable()
 export class AuthenticationService implements OnInit {
@@ -12,7 +13,7 @@ export class AuthenticationService implements OnInit {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private restService: RestService, private http: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(<string> localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -45,28 +46,16 @@ export class AuthenticationService implements OnInit {
       }));
   }
 
-  register(name: string, pwd: string, eml: string, fname: string, lname: string) {
-    const buyer = {
+  register(name: string, pwd: string, eml: string, fname: string, lname: string, phone: string) {
+    const payload = {
       username: name,
       password: pwd,
       email: eml,
-      firstname: fname,
-      lastname: lname
+      first_name: fname,
+      last_name: lname,
+      phone: phone
     };
-    const httpHeaders = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-    const options = {
-      headers: httpHeaders
-    };
-
-    return this.http.post<any>('http://localhost:8080/MarketApp/register', JSON.stringify(buyer), options)
-      .pipe(map(user => {
-        if (user && user.token) {
-          localStorage.setItem('newUser', JSON.stringify(user));
-        }
-        return user;
-      }));
+    return this.restService.post('register', payload);
   }
 
   logout() {
