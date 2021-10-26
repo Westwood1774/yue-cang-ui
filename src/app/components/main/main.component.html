@@ -1,5 +1,8 @@
 <div>
   <h3 align="center">历史记录</h3>
+  <div align="right">
+    <button pButton class="p-button-help" (click)="logout()">退出登录</button>
+  </div>
   <p align="right">账户余额: {{accountRest}}</p>
   <p-table
     [value]="historyData"

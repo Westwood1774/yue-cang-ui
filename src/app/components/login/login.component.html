@@ -4,7 +4,7 @@
   </nav>
   <div class="loginForm">
     <h2>欢迎光临</h2>
-    <form [formGroup]="loginForm" (submit)="onSubmit()">
+    <form [formGroup]="loginForm">
       <div class="p-float-label">
         <input pInputText id="username" type="username" formControlName="username"
                [ngClass]="{ 'is-invalid': submitted && f().username.errors }">
@@ -23,7 +23,7 @@
         </div>
       </div>
       <br><br>
-      <p-button class="btn btn-primary">登录</p-button>
+      <p-button class="btn btn-primary" (onClick)="onSubmit()">登录</p-button>
     </form>
   </div>
 </div>

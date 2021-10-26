@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
   submitted!: boolean;
-  processing!: boolean;
   returnUrl!: string;
 
   constructor(private userHttpService: AuthenticationService,
@@ -24,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/main';
   }
 
   createForm() {
@@ -35,32 +34,34 @@ export class LoginComponent implements OnInit {
   }
 
   disableForm() {
-    this.loginForm.controls['username'].disable;
-    this.loginForm.controls['password'].disable;
+    this.f()['username'].disable();
+    this.f()['password'].disable();
   }
 
   enableForm() {
-    this.loginForm.controls['username'].enable;
-    this.loginForm.controls['password'].enable;
+    this.f()['username'].enable();
+    this.f()['password'].enable();
   }
 
   f() {
     return this.loginForm.controls;
   }
 
-
   onSubmit() {
     this.submitted = true;
     if (this.loginForm.invalid) {
       return;
     }
-    this.processing = true;
     this.disableForm();
-    this.userHttpService.login(this.f().username.value, this.f().password.value).pipe(first()).subscribe(data => {
-      this.router.navigate([this.returnUrl]);
-    }, () => {
-      this.processing = false;
-      this.enableForm();
+    const login$ = this.userHttpService.login(this.f().username.value, this.f().password.value);
+    login$.pipe(first()).subscribe(res => {
+      if (res.status === 'Success') {
+        this.router.navigate([this.returnUrl]);
+        // this.router.navigate(['/main']);
+      } else {
+        alert(res.message);
+        this.enableForm();
+      }
     });
   }
 

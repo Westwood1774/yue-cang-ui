@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HistoryRecord} from '../../models/history.record';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -11,7 +12,7 @@ export class MainComponent implements OnInit {
   historyData!: HistoryRecord[];
   accountRest!: number;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
@@ -102,6 +103,10 @@ export class MainComponent implements OnInit {
         clientPermission: '否'
       }
     ];
+  }
+
+  logout() {
+    this.router.navigateByUrl('login');
   }
 
 }

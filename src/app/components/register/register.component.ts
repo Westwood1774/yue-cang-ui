@@ -60,8 +60,10 @@ export class RegisterComponent implements OnInit {
       this.f().username.value, this.f().password.value, this.f().email.value,
       this.f().firstname.value, this.f().lastname.value, this.f().phone.value);
     register$.pipe(first()).subscribe(res => {
-      this.router.navigate(['/login']);
-      // console.log("res", res);
+      alert(res.message);
+      if (res.status === 'Success') {
+        this.router.navigate(['/login']);
+      }
     });
   }
 
