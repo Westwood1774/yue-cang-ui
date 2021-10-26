@@ -14,6 +14,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {TableModule} from 'primeng/table';
+import { StoreShippingInComponent } from './components/store-shipping-in/store-shipping-in.component';
+import { StoreShippingOutComponent } from './components/store-shipping-out/store-shipping-out.component';
+import { GoodsCheckingComponent } from './components/goods-checking/goods-checking.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import {TableModule} from 'primeng/table';
     LoginComponent,
     RegisterComponent,
     MainComponent,
-    AdminComponent
+    AdminComponent,
+    StoreShippingInComponent,
+    StoreShippingOutComponent,
+    GoodsCheckingComponent
   ],
   imports: [
     BrowserModule,

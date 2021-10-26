@@ -28,8 +28,8 @@
   </p-table>
   <br>
   <div>
-    <button pButton>库存查询</button>&nbsp;&nbsp;
-    <button pButton class="p-button-secondary">寄货到仓库</button>&nbsp;&nbsp;
-    <button pButton class="p-button-success">仓库寄出</button>
+    <button pButton (click)="goodsChecking()">库存查询</button>&nbsp;&nbsp;
+    <button pButton class="p-button-secondary" (click)="shipInGoods()">寄货到仓库</button>&nbsp;&nbsp;
+    <button pButton class="p-button-success" (click)="shipOutGoods()">仓库寄出</button>
   </div>
 </div>

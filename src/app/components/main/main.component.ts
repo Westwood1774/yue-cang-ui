@@ -105,6 +105,18 @@ export class MainComponent implements OnInit {
     ];
   }
 
+  goodsChecking() {
+    this.router.navigateByUrl('goods-checking');
+  }
+
+  shipInGoods() {
+    this.router.navigateByUrl('ship-in');
+  }
+
+  shipOutGoods() {
+    this.router.navigateByUrl('ship-out');
+  }
+
   logout() {
     this.router.navigateByUrl('login');
   }
