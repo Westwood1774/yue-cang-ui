@@ -17,6 +17,14 @@ import {TableModule} from 'primeng/table';
 import { StoreShippingInComponent } from './components/store-shipping-in/store-shipping-in.component';
 import { StoreShippingOutComponent } from './components/store-shipping-out/store-shipping-out.component';
 import { GoodsCheckingComponent } from './components/goods-checking/goods-checking.component';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+import {DialogModule} from 'primeng/dialog';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {PaginatorModule} from 'primeng/paginator';
+import {InputMaskModule} from 'primeng/inputmask';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -36,9 +44,16 @@ import { GoodsCheckingComponent } from './components/goods-checking/goods-checki
     HttpClientModule,
     ButtonModule,
     InputTextModule,
-    TableModule
+    TableModule,
+    ConfirmDialogModule,
+    DialogModule,
+    BrowserAnimationsModule,
+    InputNumberModule,
+    PaginatorModule,
+    InputMaskModule,
+    CalendarModule,
   ],
-  providers: [RestService, AuthenticationService],
+  providers: [RestService, AuthenticationService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

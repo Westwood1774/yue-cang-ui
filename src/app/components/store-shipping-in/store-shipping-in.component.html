@@ -1,1 +1,57 @@
-<p>store-shipping-in works!</p>
+<div align="center" class="container">
+  <form [formGroup]="shipInForm">
+    <div>
+      <label>箱号</label>&nbsp;&nbsp;
+      <input pInputText id="boxId" type="text" formControlName="boxId">
+      <div *ngIf="submitted && f().boxId.errors" class="invalid-feedback">
+        <div *ngIf="f().boxId.errors?.required">请填写箱号</div>
+      </div>
+    </div>
+    <br><br>
+    <div>
+      <label>箱子重量</label>&nbsp;&nbsp;
+      <input pInputText id="boxWeight" type="text" formControlName="boxWeight">&nbsp;
+      lb
+      <div *ngIf="submitted && f().boxWeight.errors" class="invalid-feedback">
+        <div *ngIf="f().boxWeight.errors?.required">请填写箱子重量</div>
+      </div>
+    </div>
+    <br><br>
+    <div>
+      <label>到达日期</label>&nbsp;
+      <p-calendar
+        id="arriveDate"
+        formControlName="estimatedArriveDate"
+        [showIcon]="true">
+      </p-calendar>
+      <div *ngIf="submitted && f().arriveDate.errors" class="invalid-feedback">
+        <div *ngIf="f().arriveDate.errors?.required">请填写到达日期</div>
+      </div>
+    </div>
+    <br><br>
+    <div>
+      <label>快递公司名称</label>&nbsp;&nbsp;
+      <input pInputText id="shippingCompanyName" type="text" formControlName="shippingCompanyName">
+      <div *ngIf="submitted && f().shippingCompanyName.errors" class="invalid-feedback">
+        <div *ngIf="f().shippingCompanyName.errors?.required">请填写快递公司名称</div>
+      </div>
+    </div>
+    <br><br>
+    <div>
+      <label>追踪号</label>&nbsp;&nbsp;
+      <input pInputText id="trackingNumber" type="text" formControlName="trackingNumber">
+      <div *ngIf="submitted && f().trackingNumber.errors" class="invalid-feedback">
+        <div *ngIf="f().trackingNumber.errors?.required">请填写追踪号</div>
+      </div>
+    </div>
+    <br><br>
+  </form>
+  <div>
+    <button pButton type="button" class="p-button-danger" (click)="onCancel()">取消</button>&nbsp;&nbsp;
+    <p-button (onClick)="onSubmit()">提交</p-button>
+  </div>
+</div>
+
+
+
+
