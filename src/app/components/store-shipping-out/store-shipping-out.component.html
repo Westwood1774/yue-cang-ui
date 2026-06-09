@@ -1,1 +1,20 @@
-<p>store-shipping-out works!</p>
+<div align="center" class="container">
+  <form [formGroup]="shipOutForm">
+    <div>
+      <label>箱号</label>&nbsp;&nbsp;
+      <input pInputText id="boxId" type="text" formControlName="boxId">
+      <div *ngIf="submitted && f().boxId.errors" class="invalid-feedback">
+        <div *ngIf="f().boxId.errors?.required">请填写箱号</div>
+      </div>
+    </div>
+    <br><br>
+  </form>
+  <div>
+    <button pButton type="button" class="p-button-danger" (click)="onCancel()">取消</button>&nbsp;&nbsp;
+    <p-button (onClick)="onSubmit()">提交</p-button>
+  </div>
+</div>
+
+
+
+

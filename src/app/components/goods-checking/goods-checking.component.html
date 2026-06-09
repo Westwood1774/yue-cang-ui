@@ -1,1 +1,37 @@
-<p>goods-checking works!</p>
+<div>
+  <h3 align="center">货物存量表格</h3>
+  <p-table
+    [value]="BoxData"
+    [paginator]="true"
+    [rows]="10"
+    responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>箱号</th>
+        <th>箱子的尺寸大小</th>
+        <th>实际接收日期</th>
+        <th>计费日期</th>
+        <th>货物SKU列表</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-goods>
+      <tr>
+        <td>{{goods.boxId}}</td>
+        <td>{{goods.boxSize}}</td>
+        <td>{{goods.actualReceiveDate}}</td>
+        <td>{{goods.BillDate}}</td>
+        <td>
+          {{goods.sku}}
+          <button (click)="openSKUModal()" pButton icon="pi pi-check" label="货物SKU列表"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-confirmDialog
+  *ngIf="showSKU"
+  header="Confirmation"
+  icon="pi pi-exclamation-triangle"
+>
+</p-confirmDialog>
